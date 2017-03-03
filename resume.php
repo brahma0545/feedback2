@@ -12,11 +12,12 @@
     if ($conn->connect_error) {
         die("Connection failed: " . $conn->connect_error);
     }
+
     $user_check=$_SESSION['user_id'];
-//    echo $user_check;
     $check_user_sql = "SELECT name FROM users WHERE user_id = ".$user_check;
     $check_user_sql_query=$conn->query($check_user_sql);
     echo $check_user_sql_query->num_rows;
+
     if ($check_user_sql_query->num_rows == 0) {
         $URL="./feedback.php";
         echo "<script type='text/javascript'>document.location.href='{$URL}';</script>";

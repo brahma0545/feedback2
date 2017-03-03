@@ -14,15 +14,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }else{
         $bbranch="'".$_POST['bbranch']."'";
     }
+
     if(!$_POST['mbranch']){
         $mbranch="NULL";
     }else{
         $mbranch="'".$_POST['mbranch']."'";
     }
 
+    if(!$_POST['12thcgpa']){
+        $_POST['12thcgpa']="NULL";
+    }
+
     if(!$_POST['myear']){
         $_POST['myear']='DEFAULT';
     }
+
     if(!$_POST['mcgpa']){
         $_POST['mcgpa']='DEFAULT';
     }
@@ -264,10 +270,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                                 <div class="form-group">
                                                     <label class="control-label col-md-3">Percentage or CGPA in
                                                         Class 12
-                                                        <span class="required"> * </span>
                                                     </label>
                                                     <div class="col-md-3">
-                                                        <input type="number" class="form-control" name="12thcgpa" maxlength="2" required="required"/>
+                                                        <input type="number" class="form-control" name="12thcgpa" maxlength="2"/>
                                                     </div>
                                                 </div>
                                                 <div class="row">
@@ -472,6 +477,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                                             <option value="NA">Network Admin</option>
                                                             <option value="DBA">Database Administrator</option>
                                                             <option value="QA">Data Analyst</option>
+                                                            <option value="TE">Teaching / Faculty </option>
+                                                            <option value="OT">Others </option>
                                                         </select>
                                                     </div>
                                                 </div>
@@ -725,7 +732,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                                             <option value="2">9 AM to 12 AM</option>
                                                             <option value="3">12 PM to 3 PM</option>
                                                             <option value="4">3 PM to 6 PM</option>
-                                                            <option value="5">6 PM to 9 PM</option>
+                                                            <option value="5" selected="selected">6 PM to 9 PM</option>
                                                             <option value="6">9 PM to 12 PM</option>
                                                         </select>
 
